@@ -1,0 +1,16 @@
+# SimpleBlog
+
+> Blog Martina Žůrka o technologiích, radiofrekvenčních otiscích a osobních projektech.
+
+## Články
+
+- [Ukázkový článek: všechny prvky blogu](https://blog.zurekmartin.cz/posts/test/): Zástupný text pro ověření všech povolených prvků blogu: kapitoly, odstavce, seznamy, poznámky, obrázky, tabulka, kód a zdroje.
+
+## Rubriky
+
+- [Osobní projekty](https://blog.zurekmartin.cz/?c=projekty)
+
+## Odběr a mapa webu
+
+- [RSS](https://blog.zurekmartin.cz/feed.xml)
+- [Sitemap](https://blog.zurekmartin.cz/sitemap.xml)

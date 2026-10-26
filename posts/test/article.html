@@ -1,0 +1,84 @@
+---
+title: Ukázkový článek: všechny prvky blogu
+description: Zástupný text pro ověření všech povolených prvků blogu: kapitoly, odstavce, seznamy, poznámky, obrázky, tabulka, kód a zdroje.
+date: 2026-10-10
+category: projekty
+tags: test, typografie, layout
+cover: cover.png
+cover-alt: Zástupný graf se dvěma křivkami sloužící jako obrázek obálky
+---
+<h2 id="uvod">Úvod</h2>
+<p>Tento článek existuje jen proto, aby šlo na jednom místě ověřit <strong>všechny povolené prvky blogu</strong>. Obsah je zástupný a nic z něj netvrdí o reálném měření. Odstavec je zarovnaný do bloku, takže je dobře vidět dělení slov, mezery mezi slovy i chování na úzkých displejích. Text může být <strong>tučný</strong> nebo <em>kurzívou</em>, nic dalšího. Odkaz na zdroj dole pod článkem vypadá takto<a class="cite" href="#ref-1"></a>.</p>
+<p>Druhý odstavec slouží k ověření rytmu mezer. Mezi odstavci, nadpisy, obrázky, tabulkami i poznámkami má být všude stejná mezera, odvozená z jediné hodnoty. Odkaz na položku z pravého sloupce poznáš podle horního indexu s číslem<a class="sn-ref" href="#n1"></a>.</p>
+<aside class="note author" id="n1">Komentář autora: patří do pravého sloupce a na mobilu se zobrazí hned pod odstavcem.</aside>
+
+<h2 id="seznamy">Seznamy</h2>
+<p>Odrážkový seznam má před každou položkou pomlčku, číslovaný seznam čísla.</p>
+<ul>
+  <li>První položka odrážkového seznamu s delším textem, který se zalomí na další řádek a ukáže, jak vypadá odsazení.</li>
+  <li>Druhá položka.</li>
+  <li>Třetí položka s <strong>důrazem</strong>.</li>
+</ul>
+<ol>
+  <li>První položka číslovaného seznamu.</li>
+  <li>Druhá položka číslovaného seznamu s <em>kurzívou</em>.</li>
+  <li>Třetí položka číslovaného seznamu.</li>
+</ol>
+
+<h2 id="poznamky">Poznámky na okraji</h2>
+<p>Všechny položky v pravém sloupci jsou číslované jednotně dohromady. Tento odstavec odkazuje na obyčejnou poznámku<a class="sn-ref" href="#n2"></a>. Při najetí myší na číslo se poznámka zvýrazní, na mobilu klepnutí na číslo na poznámku přejede.</p>
+<aside class="note" id="n2">Obyčejná poznámka na okraji.</aside>
+<p>Další odstavec odkazuje na definici<a class="sn-ref" href="#n3"></a>, tedy vysvětlení pojmu, které čtenáře nevytrhne z textu. Číslování pokračuje, i když se druh položky změní, a zdroj dole se vždy odliší hranatými závorkami<a class="cite" href="#ref-2"></a>.</p>
+<aside class="note def" id="n3">Definice: krátké vysvětlení pojmu.</aside>
+
+<h2 id="media">Obrázky a tabulky</h2>
+<p>Obrázek je v prostředním sloupci a popisek má pod sebou (obr. 1). Okraj obrázku je jen tenká čára, bez stínu a zaoblení.</p>
+<figure class="fig">
+  <img src="fig-1.png" alt="Zástupná ilustrace složená z náhodných barevných čar">
+  <figcaption>Zástupná ilustrace s jedinečným popiskem.</figcaption>
+</figure>
+<p>Grafy jsou také obrázky s vlastními osami a bílým pozadím a číslují se společně s ostatními obrázky (obr. 2 a obr. 3).</p>
+<figure class="fig">
+  <img src="graf-1.png" alt="Zástupný spojitý graf: hodnota roste v čase a blíží se konstantě">
+  <figcaption>Zástupný spojitý graf se zašuměnými daty.</figcaption>
+</figure>
+<figure class="fig">
+  <img src="graf-2.png" alt="Zástupný sloupcový graf pěti kategorií A až E">
+  <figcaption>Zástupný sloupcový graf pěti kategorií.</figcaption>
+</figure>
+<p>Tabulka má tenké čáry, bez pozadí buněk a čísla zarovnaná doprava (tab. 1).</p>
+<figure class="tab">
+  <div class="table-wrap"><table>
+    <thead><tr><th>Prvek</th><th>Popisek</th><th class="num">Počet</th></tr></thead>
+    <tbody>
+      <tr><td>Obrázek</td><td>Obr.</td><td class="num">3</td></tr>
+      <tr><td>Tabulka</td><td>Tab.</td><td class="num">1</td></tr>
+      <tr><td>Kód</td><td>Kód</td><td class="num">2</td></tr>
+    </tbody>
+  </table></div>
+  <figcaption>Přehled popisků použitých v tomto článku.</figcaption>
+</figure>
+
+<h2 id="kod">Kód</h2>
+<p>Kód je ručně obarvený třídami, má vlastní číslování a bezpatkové písmo. Kód 1 je krátký, kód 2 je delší a ověřuje vodorovné posouvání. Tlačítko pro kopírování se zobrazí při najetí.</p>
+<figure class="code">
+<pre><code><span class="k">const</span> <span class="f">prumer</span> = (<span class="b">hodnoty</span>) =&gt;
+  hodnoty.<span class="f">reduce</span>((a, b) =&gt; a + b, <span class="n">0</span>) / hodnoty.length;
+
+<span class="b">console</span>.<span class="f">log</span>(<span class="f">prumer</span>([<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>]), <span class="s">'hotovo'</span>);</code></pre>
+  <figcaption>Krátká ukázka v JavaScriptu.</figcaption>
+</figure>
+<figure class="code">
+<pre><code><span class="k">def</span> <span class="f">vysledky_podle_kategorie</span>(zaznamy, kategorie, minimum=<span class="n">0</span>, maximum=<span class="n">100</span>, oddelovac=<span class="s">';'</span>, kodovani=<span class="s">'utf-8'</span>):
+    <span class="k">return</span> [z <span class="k">for</span> z <span class="k">in</span> zaznamy <span class="k">if</span> z.kategorie == kategorie <span class="k">and</span> minimum &lt;= z.hodnota &lt;= maximum]</code></pre>
+  <figcaption>Delší ukázka v Pythonu s dlouhým řádkem.</figcaption>
+</figure>
+
+<h2 id="zaver">Závěr</h2>
+<p>Pokud se všechny prvky výše zobrazují správně v obou režimech i na mobilu, je základ blogu hotový. Poslední kapitola obsahu se musí zvýraznit i tehdy, když je stránka odscrollovaná úplně dolů.</p>
+
+<h2 id="zdroje" class="nonum">Zdroje</h2>
+<ol class="refs">
+  <li id="ref-1"><span>Zástupný zdroj č. 1, jen pro ověření odkazu z odstavce.</span></li>
+  <li id="ref-2"><span>Zástupný zdroj č. 2 s odkazem: <a href="https://example.com">example.com</a>.</span></li>
+</ol>
