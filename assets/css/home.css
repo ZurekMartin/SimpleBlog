@@ -37,7 +37,7 @@
     &:hover .foot-line::after { opacity: 1; translate: calc(var(--hair) * -1) 0; }
   }
 
-  .empty { padding-top: var(--d-ui); margin-bottom: calc(var(--d-ui) * -1); text-align: center; color: var(--ink-2); font: var(--ui); }
+  .empty { padding-block: var(--pad); box-shadow: 0 1px 0 var(--line); text-align: center; text-wrap: balance; color: var(--ink-2); font: var(--body); }
 
   .pager {
     display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 0 var(--half); margin-top: var(--pad);
@@ -66,6 +66,10 @@
     dt, dd { font: var(--ui); }
     dt { color: var(--ink-3); text-transform: uppercase; translate: 0 var(--c-su); }
     dd { translate: 0 var(--c-s); max-width: 100%; white-space: nowrap; a { color: var(--ink); transition: color 0.2s; &:hover { color: var(--accent); } } }
+  }
+
+  @media (width < 74rem) {
+    .bio dl > div:last-child { box-shadow: none; }
   }
 
   @media (width <= 640px) {

@@ -1,4 +1,4 @@
 Contact: mailto:zurek.martin.1@icloud.com
-Expires: 2027-10-25T15:11:09Z
+Expires: 2027-10-25T19:29:53Z
 Preferred-Languages: cs, en
 Canonical: https://blog.zurekmartin.cz/.well-known/security.txt

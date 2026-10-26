@@ -241,11 +241,21 @@ article.querySelectorAll('a.cite').forEach((a) => {
 document.querySelectorAll('figure.code').forEach((fig) => {
   const button = Object.assign(document.createElement('button'), { className: 'copy', type: 'button', title: 'Kopírovat kód' });
   button.setAttribute('aria-label', 'Kopírovat kód');
+  button.append(Object.assign(document.createElement('span'), { className: 'ok' }));
   button.addEventListener('click', async () => {
+    const text = fig.querySelector('pre').innerText;
     try {
-      await navigator.clipboard.writeText(fig.querySelector('pre').innerText);
+      await navigator.clipboard.writeText(text);
     } catch {
-      return;
+      const area = Object.assign(document.createElement('textarea'), { value: text });
+      area.setAttribute('readonly', '');
+      area.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+      document.body.append(area);
+      area.select();
+      const ok = document.execCommand('copy');
+      area.remove();
+      button.focus();
+      if (!ok) return;
     }
     button.dataset.done = '';
     setTimeout(() => delete button.dataset.done, 1600);

@@ -16,7 +16,7 @@
   }
 
   @media (width < 74rem) {
-    .prose { grid-template-columns: minmax(0, 1fr); > .note { grid-column: 1; } }
+    .prose { grid-template-columns: minmax(0, 1fr); > .note { grid-column: 1; margin-top: var(--pad); text-align: justify; } }
   }
 }
 
@@ -86,10 +86,10 @@
     &.author::before { content: "Komentář autora " attr(data-n); }
   }
 
-  body[data-focus] :is(.rail, .prose > *, .more) { opacity: var(--veil); }
+  body[data-focus] .prose > * { opacity: var(--veil); }
   body[data-focus] .keep { opacity: 1; }
   body[data-focus] .refs li:not(.keep) { opacity: var(--veil); }
-  :is(.rail, .prose > *, .more, .refs li) { transition: opacity 0.25s; }
+  :is(.prose > *, .refs li) { transition: opacity 0.25s; }
   ::highlight(dim) { color: var(--dim); }
 
   .prose figure { display: grid; position: relative; }
@@ -132,15 +132,17 @@
   }
 
   .copy {
-    position: absolute; top: var(--pad); right: calc(var(--pad) - 1px); width: calc(var(--pad) + 1px); height: calc(var(--pad) + 1px);
+    position: absolute; z-index: 1; top: var(--pad); right: calc(var(--pad) - 1px); width: calc(var(--pad) + 1px); height: calc(var(--pad) + 1px);
     border: 1px solid var(--line); background: var(--bg); color: var(--ink-2); cursor: pointer;
     opacity: 0; transition: opacity 0.2s, color 0.2s;
-    &::before, &::after { content: ""; position: absolute; width: 0.625rem; height: 0.625rem; border: 1px solid currentColor; background: var(--bg); }
+    &::before, &::after, .ok { content: ""; position: absolute; transition: opacity 0.25s; }
+    &::before, &::after { width: 0.625rem; height: 0.625rem; border: 1px solid currentColor; background-color: var(--bg); }
     &::before { left: calc(50% - 0.5rem); top: calc(50% - 0.5rem); }
     &::after { left: calc(50% - 0.125rem); top: calc(50% - 0.125rem); }
+    .ok { left: calc(50% - 0.15rem); top: calc(50% - 0.4rem); width: 0.3rem; height: 0.6rem; border: solid currentColor; border-width: 0 2px 2px 0; rotate: 45deg; opacity: 0; }
     &:hover, &[data-done] { color: var(--accent); }
-    &[data-done]::before { display: none; }
-    &[data-done]::after { left: calc(50% - 0.15rem); top: calc(50% - 0.4rem); width: 0.3rem; height: 0.6rem; border-width: 0 2px 2px 0; background: none; rotate: 45deg; }
+    &[data-done]::before, &[data-done]::after { opacity: 0; }
+    &[data-done] .ok { opacity: 1; }
   }
   figure.code:hover .copy, .copy:focus-visible, .copy[data-done] { opacity: 1; }
   @media (hover: none) { .copy { opacity: 1; } }
